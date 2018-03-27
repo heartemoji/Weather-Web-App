@@ -1,0 +1,43 @@
+body {
+    background-color: rgb(26, 26, 26);
+    background-image: url("cloud-background.jpeg");
+}
+
+.main-box {
+    background-color: white;
+    width: 20%;
+    display: table;
+    margin: auto;
+    text-align: left;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    right: auto;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 0px;
+    padding-right: 40px;
+    box-shadow: 10px 10px 10px;
+    
+}
+
+.location {
+    padding-left: 25px;
+    font-size: 22pt;
+    
+}
+
+.temp {
+    display:inline;
+    font-weight: 500;
+    font-size: 18pt;
+    padding-left: 25px;
+    
+}
+
+.desc{
+    padding-top: 10px;
+    padding-left: 25px;
+    font-weight: 500;
+    font-style: italic
+}
