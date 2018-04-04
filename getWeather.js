@@ -2,13 +2,37 @@ var latitude = 0;
 var longitude = 0;
 
 
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
+    function setBackground(weather){
+        var desc = weather.toLowerCase();
+        switch(desc){
+            case "clouds":
+                $('#body').css('background-image', 'url("img/cloudy.png")');
+                break;
+            case "rain":
+                $('#body').css('background-image', 'url("img/rain.jpg")');
+                break;
+            case "snow":
+                $('#body').css('background-image', 'url("img/snow.jpg")');
+                break;
+            case "drizzle":
+                $('#body').css('background-image', 'url("img/drizzle.jpg")');
+                break;
+            default:
+                $('#body').css('background-image', 'url("img/clouds.jpeg")');
+                break;
+        }
+
+    }
+    
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(function(position){
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
 
             $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat=" + latitude + "&lon=" + longitude, function(json){
+                
+                setBackground(json.weather[0].main);
                 
                 $("#name").html(json.name);
                 
@@ -27,9 +51,4 @@ $(document).ready(function () {
     }
 });
 
-function setBackground(desc){
-    desc.toLowerCase();
-    
-    
-    
-}
+
